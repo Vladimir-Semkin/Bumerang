@@ -6,6 +6,7 @@ const ourFunction = require('./keyboard');
 const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');
 const Counter = require('./Counter');
+
 // const Boomerang = require('./game-models/Boomerang');
 const View = require('./View');
 
@@ -30,8 +31,9 @@ class Game {
     this.track[this.enemy.position] = this.enemy.skin;
     this.track[this.hero.boomerang.position] = this.hero.boomerang.skin;
     this.track[this.hero.position] = this.hero.skin;
+    this.enemy[this.enemy.position]=this.enemy.skin
   }
-
+ 
   check() {
     if (this.hero.position === this.enemy.position) {
       this.hero.die();

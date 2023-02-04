@@ -1,5 +1,4 @@
 // Наш герой.
-
 const Boomerang = require('./Boomerang');
 
 class Hero {
@@ -21,6 +20,10 @@ class Hero {
 
   attack() {
     // Атакуем.
+    this.boomerang.fly();
+    player.play('congratulations.wav', { timeout: 500 }, (err) => {
+      if (err) throw err;
+    });
   }
 
   die() {

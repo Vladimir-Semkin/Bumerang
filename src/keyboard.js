@@ -40,6 +40,7 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
       }
       if (key.name === 'e') {
         hero.boomerang.moveRight(hero);
+
         player.play('./src/sounds/congratulations.wav', (err) => {
           if (err) throw err;
         });
