@@ -3,38 +3,54 @@
 // Главное не используй всё вместе!
 
 const keypress = require('keypress');
+const player = require('play-sound')((opts = {}));
+
+const Hero = require('./game-models/Hero');
 
 // Управление.
 // Настроим соответствия нажатий на клавиши и действий в игре.
 
+// Какая-то функция.
+
 const keyboard = {
-  q: () => console.log('q'),
-  w: () => console.log('w'),
-  e: () => console.log('e'),
-  r: () => console.log('r'),
-  t: () => console.log('t'),
+  a: () => console.log('q'),
+  d: () => console.log('w'),
+  w: () => console.log('e'),
+  s: () => console.log('r'),
+  e: () => console.log('t'),
   y: () => console.log('y'),
 };
 
-// Какая-то функция.
-
-function runInteractiveConsole() {
+const ourFunction = function runInteractiveConsole(hero, enemy) {
   keypress(process.stdin);
+
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
       // Вызывает команду, соответствующую нажатой кнопке.
-      if (key.name in keyboard) {
-        keyboard[key.name]();
+      if (key.name === 'd') {
+        hero.position += 1;
+      }
+
+      if (key.name === 'a') {
+        hero.position -= 1;
+      }
+
+      if (key.name === 'e') {
+        hero.boomerang.moveRight(hero);
+
+        player.play('./src/sounds/congratulations.wav', (err) => {
+          if (err) throw err;
+        });
       }
       // Прерывание программы.
-      if (key.ctrl && key.name === 'c') {
-        process.exit();
-      }
+      // if (key.ctrl && key.name === 'c') {
+      //   process.exit();
+      // }
     }
   });
   process.stdin.setRawMode(true);
-}
+};
 
 // Давай попробуем запустить этот скрипт!
 
-runInteractiveConsole();
+module.exports = ourFunction;
