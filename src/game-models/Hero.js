@@ -30,7 +30,7 @@ class Hero {
     this.skin = '💀'
     this.position -= 1
     setTimeout(() => {
-      console.log('YOU ARE DEAD!💀')
+      console.log('YOU ARE DEAD!💀🌈')
 
       process.exit()
     }, 150)

@@ -37,7 +37,7 @@ class Game {
     this.track[this.enemy.position] = this.enemy.skin;
     this.track[this.hero.boomerang.position] = this.hero.boomerang.skin;
     this.track[this.hero.position] = this.hero.skin;
-    this.enemy[this.enemy.position] = this.enemy.skin;
+    // this.track[this.enemy.position] = this.enemy.skin;
   }
 
   check() {
