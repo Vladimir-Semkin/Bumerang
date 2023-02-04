@@ -1,7 +1,5 @@
 // Наш герой.
 
-var player = require('play-sound')((opts = {}));
-
 const Boomerang = require('./Boomerang');
 
 class Hero {
@@ -23,10 +21,6 @@ class Hero {
 
   attack() {
     // Атакуем.
-    this.boomerang.moveRight(hero);
-    player.play('congratulations.wav', function (err) {
-      if (err) throw err;
-    });
   }
 
   die() {

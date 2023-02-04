@@ -1,6 +1,7 @@
 // Импортируем всё необходимое.
 // Или можно не импортировать,
 // а передавать все нужные объекты прямо из run.js при инициализации new Game().
+
 const ourFunction = require('./keyboard');
 const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');

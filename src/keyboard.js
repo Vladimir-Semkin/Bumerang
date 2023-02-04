@@ -3,6 +3,8 @@
 // Главное не используй всё вместе!
 
 const keypress = require('keypress');
+const player = require('play-sound')((opts = {}));
+
 const Hero = require('./game-models/Hero');
 
 // Управление.
@@ -21,6 +23,7 @@ const keyboard = {
 
 const ourFunction = function runInteractiveConsole(hero, enemy) {
   keypress(process.stdin);
+
   process.stdin.on('keypress', (ch, key) => {
     if (key) {
       // Вызывает команду, соответствующую нажатой кнопке.
@@ -36,7 +39,10 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
         hero.die();
       }
       if (key.name === 'e') {
-        hero.attack();
+        hero.boomerang.moveRight(hero);
+        player.play('./src/sounds/congratulations.wav', (err) => {
+          if (err) throw err;
+        });
       }
       // Прерывание программы.
       if (key.ctrl && key.name === 'c') {

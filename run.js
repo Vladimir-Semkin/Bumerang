@@ -1,5 +1,7 @@
 // Основной файл.
 // Запускает игру.
+const player = require('play-sound')((opts = {}));
+
 const Game = require('./src/Game');
 // const ourFunction = require('./src/keyboard');
 
