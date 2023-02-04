@@ -19,14 +19,14 @@ class Hero {
     this.position += 1;
   }
 
-  attack() {
-    // Атакуем.
-    this.boomerang.fly();
-    player.play('congratulations.wav', { timeout: 500 }, function (err) {
-      if (err) throw err
-    });
+  // attack() {
+  //   // Атакуем.
+  //   this.boomerang.fly();
+  //   player.play('congratulations.wav', { timeout: 500 }, function (err) {
+  //     if (err) throw err
+  //   });
 
-  }
+  // }
 
   die() {
     this.skin = '💀';

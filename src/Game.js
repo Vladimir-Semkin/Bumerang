@@ -5,6 +5,7 @@ const ourFunction = require('./keyboard');
 const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');
 const Counter = require('./Counter');
+const writeDb=require('../db1')
 
 // const Boomerang = require('./game-models/Boomerang');
 const View = require('./View');
@@ -13,7 +14,8 @@ const View = require('./View');
 // Тут будут все настройки, проверки, запуск.
 
 class Game {
-  constructor({ trackLength }) {
+  constructor( trackLength, name ) {
+    this.name=name;
     this.trackLength = trackLength;
     this.hero = new Hero({ position: 0 }); // Герою можно аргументом передать бумеранг.
     this.enemy = new Enemy({ position: 30 });
@@ -35,6 +37,7 @@ class Game {
  
   check() {
     if (this.hero.position === this.enemy.position) {
+      writeDb(this.name, this.count.count)
       this.hero.die();
     }
     if (

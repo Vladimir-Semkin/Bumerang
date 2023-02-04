@@ -38,8 +38,8 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
       }
       if (key.name === 'e') {
         hero.boomerang.moveRight(hero);
-        player.play('congratulations.wav', { timeout: 500 }, function (err) {
-          // if (err) throw err
+        player.play('./src/sounds/congratulations.wav', function (err) {
+          if (err) throw err
         })
        
         
