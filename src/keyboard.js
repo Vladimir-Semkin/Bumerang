@@ -1,9 +1,10 @@
 // Умеешь работать с keypress? Попробуй разобраться в этом файле.
 // Вместо keypress можно использовать и стандартный readline.
 // Главное не используй всё вместе!
-
+const player = require('play-sound')((opts = {}))
 const keypress = require('keypress');
 const Hero = require('./game-models/Hero');
+
 
 // Управление.
 // Настроим соответствия нажатий на клавиши и действий в игре.
@@ -36,7 +37,12 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
         hero.die();
       }
       if (key.name === 'e') {
-        hero.boomerang.fly(hero.position);
+        hero.boomerang.moveRight(hero);
+        player.play('congratulations.wav', { timeout: 500 }, function (err) {
+          // if (err) throw err
+        })
+       
+        
       }
       // Прерывание программы.
       if (key.ctrl && key.name === 'c') {
