@@ -23,11 +23,11 @@ class Enemy {
     this.skin = skins[Math.floor(Math.random() * skins.length)];
   }
 
-  moveLeft(hero) {
+  moveLeft() {
     this.position -= 1;
-    if (hero.position === this.position) {
-      hero.die();
-    }
+    // if (hero.position === this.position) {
+    //   hero.die();
+    // }
   }
 
   die() {

@@ -31,6 +31,7 @@ class Hero {
     this.position -= 1;
     setTimeout(() => {
       console.log('YOU ARE DEAD!💀');
+
       process.exit();
     }, 150);
   }

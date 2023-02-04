@@ -1,7 +1,7 @@
 // Сделаем отдельный класс для отображения игры в консоли.
 
 class View {
-  render(track, count) {
+  render(track, count, name) {
     const yourTeamName = 'Elbrus';
 
     // Тут всё рисуем.
@@ -10,6 +10,7 @@ class View {
     console.log('\n\n');
     console.log(`Ты заработал '${count}' очков`);
     console.log(`Created by "${yourTeamName}" with love`);
+    console.log(name);
   }
 }
 

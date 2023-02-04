@@ -35,9 +35,6 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
         hero.position -= 1;
       }
 
-      if (hero.position === enemy.position) {
-        hero.die();
-      }
       if (key.name === 'e') {
         hero.boomerang.moveRight(hero);
 
@@ -46,9 +43,9 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
         });
       }
       // Прерывание программы.
-      if (key.ctrl && key.name === 'c') {
-        process.exit();
-      }
+      // if (key.ctrl && key.name === 'c') {
+      //   process.exit();
+      // }
     }
   });
   process.stdin.setRawMode(true);
