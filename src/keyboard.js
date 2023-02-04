@@ -1,10 +1,11 @@
 // Умеешь работать с keypress? Попробуй разобраться в этом файле.
 // Вместо keypress можно использовать и стандартный readline.
 // Главное не используй всё вместе!
-const player = require('play-sound')((opts = {}))
-const keypress = require('keypress');
-const Hero = require('./game-models/Hero');
 
+const keypress = require('keypress');
+const player = require('play-sound')((opts = {}));
+
+const Hero = require('./game-models/Hero');
 
 // Управление.
 // Настроим соответствия нажатий на клавиши и действий в игре.
@@ -22,8 +23,9 @@ const keyboard = {
 
 const ourFunction = function runInteractiveConsole(hero, enemy) {
   keypress(process.stdin);
+
   process.stdin.on('keypress', (ch, key) => {
-    if (key) { 
+    if (key) {
       // Вызывает команду, соответствующую нажатой кнопке.
       if (key.name === 'd') {
         hero.position += 1;
@@ -33,21 +35,17 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
         hero.position -= 1;
       }
 
-      if (hero.position === enemy.position) {
-        hero.die();
-      }
       if (key.name === 'e') {
         hero.boomerang.moveRight(hero);
-        player.play('./src/sounds/congratulations.wav', function (err) {
-          if (err) throw err
-        })
-       
-        
+
+        player.play('./src/sounds/congratulations.wav', (err) => {
+          if (err) throw err;
+        });
       }
       // Прерывание программы.
-      if (key.ctrl && key.name === 'c') {
-        process.exit();
-      }
+      // if (key.ctrl && key.name === 'c') {
+      //   process.exit();
+      // }
     }
   });
   process.stdin.setRawMode(true);
