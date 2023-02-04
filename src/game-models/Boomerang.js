@@ -1,26 +1,34 @@
-dwwadsaaa// Бумеранг является оружием.
+// Бумеранг является оружием.
 // В дальнейшем можно добавить другое оружие.
 // Тогда можно будет создать класс Weapon и воспользоваться наследованием!
 
 class Boomerang {
-  constructor() { 
+  constructor(position) {
     this.skin = '🌀';
-    this.position = 0;
+    this.position = position;
   }
 
-  fly() {
+  fly(position) {
+    this.position = position + 1;
     this.moveRight();
     this.moveLeft();
   }
 
-  moveLeft() {
-    // Идём влево.
-    this.position -= 1;
+  async moveLeft() {
+    for (let i = 0; i < 5; i += 1) {
+      await new Promise((r) => setTimeout(r, 100));
+      if (this.position > position) {
+        this.position -= 1;
+      }
+    }
   }
 
-  moveRight() {
-    // Идём вправо.
-    this.position += 1;
+  async moveRight() {
+    for (let i = 0; i < 5; i += 1) {
+      await new Promise((r) => setTimeout(r, 200));
+      this.position += 1;
+    }
+    this.position = -1;
   }
 }
 
