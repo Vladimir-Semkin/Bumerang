@@ -36,7 +36,7 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
         hero.die();
       }
       if (key.name === 'e') {
-        hero.boomerang.fly(hero.position);
+        hero.boomerang.moveRight(hero);
       }
       // Прерывание программы.
       if (key.ctrl && key.name === 'c') {

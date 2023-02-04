@@ -4,7 +4,7 @@ const Boomerang = require('./Boomerang');
 
 class Hero {
   constructor({ position }) {
-    this.skin = '🤠';
+    this.skin = '🏎️';
     this.position = position;
     this.boomerang = new Boomerang(-1);
   }

@@ -31,7 +31,8 @@ class Enemy {
   }
 
   die() {
-    this.position = -1;
+    this.generateSkin();
+    this.position = 30;
     console.log('Enemy is dead!');
   }
 }

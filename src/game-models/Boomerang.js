@@ -8,27 +8,34 @@ class Boomerang {
     this.position = position;
   }
 
-  fly(position) {
-    this.position = position + 1;
-    this.moveRight();
-    // this.moveLeft();
-  }
+  // fly(position) {
+  //   this.position = position + 1;
+  //   this.moveRight();
+  //   // setTimeout(() => {
+  //   //   this.moveLeft();
+  //   // }, 10);
+  // }
 
   // async moveLeft() {
   //   for (let i = 0; i < 5; i += 1) {
   //     await new Promise((r) => setTimeout(r, 100));
-  //     if (this.position > position) {
-  //       this.position -= 1;
-  //     }
+  //     this.position -= 1;
   //   }
   // }
 
-  async moveRight() {
+  async moveRight(hero) {
+    this.position = hero.position + 1;
     for (let i = 0; i < 5; i += 1) {
-      await new Promise((r) => setTimeout(r, 200));
+      await new Promise((r) => setTimeout(r, 100));
       this.position += 1;
     }
-    this.position = -1;
+
+    for (let i = this.position; i > hero.position; i--) {
+      await new Promise((r) => setTimeout(r, 100));
+
+      this.position -= 1;
+    }
+    this.position = -8;
   }
 }
 
