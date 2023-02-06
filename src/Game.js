@@ -77,8 +77,7 @@ class Game {
       (this.enemy1.position1 === this.hero.boomerang.position1 &&
         this.enemy1.position2 === this.hero.boomerang.position2 + 1) ||
       (this.enemy1.position1 === this.hero.boomerang.position1 &&
-        this.enemy1.position2 === this.hero.boomerang.position2 - 1) ||
-      this.enemy1.position2 <= 0
+        this.enemy1.position2 === this.hero.boomerang.position2 - 1)
     ) {
       this.enemy1.die();
       this.count.addCount();
@@ -89,8 +88,7 @@ class Game {
       (this.enemy2.position1 === this.hero.boomerang.position1 &&
         this.enemy2.position2 === this.hero.boomerang.position2 + 1) ||
       (this.enemy2.position1 === this.hero.boomerang.position1 &&
-        this.enemy2.position2 === this.hero.boomerang.position2 - 1) ||
-      this.enemy2.position2 <= 0
+        this.enemy2.position2 === this.hero.boomerang.position2 - 1)
     ) {
       this.enemy2.die();
       this.count.addCount();
@@ -102,73 +100,77 @@ class Game {
       (this.enemy3.position1 === this.hero.boomerang.position1 &&
         this.enemy3.position2 === this.hero.boomerang.position2 + 1) ||
       (this.enemy3.position1 === this.hero.boomerang.position1 &&
-        this.enemy3.position2 === this.hero.boomerang.position2 - 1) ||
-      this.enemy3.position2 <= 0
+        this.enemy3.position2 === this.hero.boomerang.position2 - 1)
     ) {
       this.enemy3.die();
       this.count.addCount();
     }
+    if (this.enemy1.position2 < 0) {
+      this.enemy1.die();
+    }
+    if (this.enemy2.position2 < 0) {
+      this.enemy2.die();
+    }
+    if (this.enemy3.position2 < 0) {
+      this.enemy3.die();
+    }
   }
 
   play() {
-    // console.clear();
-    // console.log(`Привет! Давно тебя не было в уличных гонках, ${this.name}!`);
-    // wait(3);
-    // console.clear();
-    // console.log('Только помни, дома тебя ждёт мама');
-    // wait(3);
-    // console.clear();
-    // console.log('Первая фаза, Вы готовы?');
-    // wait(3);
-    // console.clear();
-    // console.log('Бобры 🦫, я Вас не слышу');
-    // wait(3);
-    // console.clear();
-    // console.log('поехали!');
-    // wait(2);
-    // console.clear();
-    // console.log('99...');
-    // wait(1);
-    // console.clear();
-    // console.log('98...');
-    // wait(1);
-    // console.clear();
-    // console.log('97...');
-    // wait(1);
-    // console.clear();
-    // console.log('96...');
-    // wait(1);
-    // console.clear();
-    // console.log('95...');
-    // wait(1);
-    // console.clear();
-    // console.log('94...');
-    // wait(1);
-    // console.clear();
-    // console.log('93...');
-    // wait(1);
-    // console.clear();
-    // console.log('92...');
-    // wait(1);
-    // for (let i = 91; i > 3; i--) {
-    //   console.clear();
-    //   console.log(`${i}...`);
-    //   wait(0, 1);
-    // }
-    // console.clear();
-    // console.log('3...');
-    // wait(1);
-    // console.clear();
-    // console.log('2...');
-    // wait(1);
+    console.clear();
+    console.log(`Привет! Давно тебя не было в уличных гонках, ${this.name}!`);
+    wait(3);
+    console.clear();
+    console.log('Только помни, дома тебя ждёт мама');
+    wait(3);
+    console.clear();
+    console.log('Первая фаза, Вы готовы?');
+    wait(3);
+    console.clear();
+    console.log('Бобры 🦫, я Вас не слышу');
+    wait(3);
+    console.clear();
+    console.log('поехали!');
+    wait(2);
+    console.clear();
+    console.log('99...');
+    wait(1);
+    console.clear();
+    console.log('98...');
+    wait(1);
+    console.clear();
+    console.log('97...');
+    wait(1);
+    console.clear();
+    console.log('96...');
+    wait(1);
+    console.clear();
+    console.log('95...');
+    wait(1);
+    console.clear();
+    console.log('94...');
+    wait(1);
+    console.clear();
+    console.log('93...');
+    wait(1);
+    console.clear();
+    console.log('92...');
+    wait(1);
+    for (let i = 91; i > 3; i--) {
+      console.clear();
+      console.log(`${i}...`);
+      wait(0, 1);
+    }
+    console.clear();
+    console.log('3...');
+    wait(1);
+    console.clear();
+    console.log('2...');
+    wait(1);
     console.clear();
     console.log('1...');
     wait(3);
-    this.audio = player.play('./src/sounds/muzik.wav', (err) => {
-      if (err && !err.killed) {
-        throw err;
-      }
-    });
+    this.audio = player.play('./src/sounds/muzik.wav', () => {});
 
     ourFunction(this.hero, this.enemy);
 
@@ -179,7 +181,7 @@ class Game {
       this.enemy3.moveLeft(this.hero);
       this.regenerateTrack();
       this.view.render(this.track, this.count.count, this.name);
-    }, 300);
+    }, 100);
     this.check();
   }
 }
