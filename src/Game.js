@@ -9,6 +9,7 @@ const ourFunction = require('./keyboard');
 const Hero = require('./game-models/Hero');
 const Enemy = require('./game-models/Enemy');
 const Counter = require('./Counter');
+const writeDb=require('../db1')
 
 // const Boomerang = require('./game-models/Boomerang');
 const View = require('./View');

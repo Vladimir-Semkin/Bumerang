@@ -67,6 +67,7 @@ class View {
       ].join(' ')
     );
 
+
     console.log('\n\n');
     console.log(`Ты заработал '${count}' очков`);
     console.log(`Created by "${yourTeamName}" with love`);
