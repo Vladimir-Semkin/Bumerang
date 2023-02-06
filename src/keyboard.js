@@ -28,11 +28,23 @@ const ourFunction = function runInteractiveConsole(hero, enemy) {
     if (key) {
       // Вызывает команду, соответствующую нажатой кнопке.
       if (key.name === 'd') {
-        hero.position += 1;
+        hero.position2 += 1;
       }
 
       if (key.name === 'a') {
-        hero.position -= 1;
+        hero.position2 -= 1;
+      }
+
+      if (key.name === 'e') {
+        hero.boomerang.moveRight(hero);
+      }
+
+      if (key.name === 'w' && hero.position1 !== 0) {
+        hero.position1 -= 1;
+      }
+
+      if (key.name === 's' && hero.position1 !== 2) {
+        hero.position1 += 1;
       }
 
       if (key.name === 'e') {
