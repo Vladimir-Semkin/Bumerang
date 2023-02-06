@@ -2,10 +2,13 @@
 const Boomerang = require('./Boomerang')
 
 class Hero {
-  constructor({ position }) {
-    this.skin = '🏎️'
-    this.position = position
-    this.boomerang = new Boomerang(-1)
+
+  constructor(position1, position2) {
+    this.skin = '🏎️';
+    this.position1 = position1;
+    this.position2 = position2;
+    this.boomerang = new Boomerang(0, -1);
+
   }
 
   moveLeft() {

@@ -1,9 +1,10 @@
 // Враг.
 
 class Enemy {
-  constructor() {
+  constructor(position1, position2) {
     this.generateSkin();
-    this.position = 29;
+    this.position1 = position1;
+    this.position2 = position2;
   }
 
   generateSkin() {
@@ -24,7 +25,7 @@ class Enemy {
   }
 
   moveLeft() {
-    this.position -= 1;
+    this.position2 -= 1;
     // if (hero.position === this.position) {
     //   hero.die();
     // }
@@ -32,7 +33,7 @@ class Enemy {
 
   die() {
     this.generateSkin();
-    this.position = 30;
+    this.position2 = 50;
     console.log('Enemy is dead!');
   }
 }
